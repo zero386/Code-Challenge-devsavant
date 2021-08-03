@@ -1,0 +1,4 @@
+<div [hidden]="!previewMode">
+    <p>{{ text }}</p>
+</div>
+<textarea [hidden]="previewMode" maxlength="100" [(ngModel)]="text" (ngModelChange)="changeText()"></textarea>

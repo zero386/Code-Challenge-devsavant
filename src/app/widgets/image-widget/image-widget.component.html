@@ -1,0 +1,8 @@
+
+<img *ngIf="filesUpload.length === 0" src="assets/user-icon.png" width="100px" height="100px" class="img-fluid" alt="Responsive image">
+<div *ngFor="let image of filesUpload" class="container">
+    <div class="item">
+        <img [src]="image?.Url" width="100px" height="100px" class="img-fluid" alt="Responsive image">
+    </div>
+</div>
+<input *ngIf="!previewMode" type="file" name="file-5[]" id="file-5" class="inputfile inputfile-4" multiple="true" (change)="handleFilesInput($event)">

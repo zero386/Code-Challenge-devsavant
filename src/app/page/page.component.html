@@ -1,0 +1,46 @@
+
+<div style="text-align: center;" class="settings-container">
+    <div class="settings-item">
+        <h4>Welcome to CMS, you can start creating your own and custom page</h4>
+    </div>
+    <div class="settings-item">
+        <app-dropdown *ngIf="isEdition" [items]="widgetCatalog" [text]="'Add Widget'" (onChangeItem)="selectWidget($event)">
+        </app-dropdown>
+    </div>
+    <div class="settings-item">
+        <app-dropdown [items]="settings" [text]="'Settings'" [icon]="icon" (onChangeItem)="selectSetting($event)">
+        </app-dropdown>
+    </div>
+</div>
+
+<div class="card text-center" *ngIf="widgetArray.length === 0">
+    <div class="card-header">
+      Page Canvas
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Create page</h5>
+      <p class="card-text">Start Creating your own page.</p>
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>
+
+<div class="container" *ngFor="let widget of widgetArray">
+    <div *ngIf="isEdition" dragula="WIDGETS" [dragulaModel]="widgetArray" (dragulaModelChange)="widgetArray = $event" class="card item">
+        <div class="card-header">
+            {{ widget?.displayName }}
+            <i class="fas fa-plus-square move-action"></i>
+        </div>
+        <div class="card-body">
+            <app-widget [widgetName]="widget?.name"></app-widget>
+        </div>
+    </div>
+    <br>
+    <div *ngIf="isPreview">
+        <div class="card-body">
+            <app-widget [widgetName]="widget?.name" [previewMode]="isPreview"></app-widget>
+        </div>
+    </div>
+    <br>
+</div>

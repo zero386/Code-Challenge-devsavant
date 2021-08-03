@@ -1,0 +1,33 @@
+@media (min-width: 800px) {
+    .wrapper {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      grid-gap: 16px;
+    }
+  
+    aside {
+      align-self: start;
+    }
+}
+
+.settings-container {
+  display: flex;
+}
+
+.settings-item {
+  flex-grow: 1;
+}
+
+.settings-item + .settings-item {
+  margin-left: 2%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,13 @@
+<div class="btn-group" dropdown>
+    <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+            aria-controls="dropdown-basic">
+      {{ text }} <span class="caret"></span>
+      <img *ngIf="icon?.display" [src]="icon?.src" width="30px" height="30px">
+    </button>
+    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-basic">
+        <div *ngFor="let item of items">
+            <li role="menuitem" (click)="changeItem(item)"><a class="dropdown-item" href="#"><i *ngIf="item?.icon" [class]="item?.icon" ></i> {{ item?.displayName }}</a></li>
+        </div>
+    </ul>
+  </div>
